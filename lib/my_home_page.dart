@@ -17,7 +17,12 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: const Grid(7, 6),
+      body: Column(
+        children: const [
+          Grid(7, 6),
+          Text("AI turn"),
+        ],
+      ),
       floatingActionButton: null,
     );
   }

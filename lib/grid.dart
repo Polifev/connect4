@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/grid_cell.dart';
 
 class Grid extends StatefulWidget {
   final int width, height;
-
   const Grid(this.width, this.height, {Key? key}) : super(key: key);
 
   @override
@@ -16,15 +16,25 @@ class GridState extends State<Grid> {
     for (int i = 0; i < widget.height; i++) {
       List<Widget> sublist = <Widget>[];
       for (int j = 0; j < widget.width; j++) {
-        sublist.add(
-          Container(
-              color: Colors.blue, height: 48, width: 48, child: Text("$i;$j")),
-        );
+        int occupation = 0;
+        // TODO: get real occupation from model
+        // TODO: forward callback to player if it is player's turn
+        GridCell cell = GridCell(j, occupation, printColumn);
+        sublist.add(cell);
       }
-      list.add(Row(
-        children: sublist,
-      ));
+      list.add(
+          Row(children: sublist, mainAxisAlignment: MainAxisAlignment.center));
     }
-    return Center(child: Column(children: list));
+    return Column(
+      children: list,
+    );
+  }
+
+  void printColumn(int col) {
+    SnackBar snackBar = SnackBar(
+      content: Text("Column pressed: $col"),
+      duration: const Duration(seconds: 1),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }
