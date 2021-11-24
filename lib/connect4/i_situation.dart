@@ -14,4 +14,6 @@ abstract class ISituation {
   void setScore(int value);
 
   List<List<int>> getGrid();
+
+  int getCurrentplayer();
 }

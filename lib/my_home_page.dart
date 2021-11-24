@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/grid.dart';
+import 'package:flutter_application_1/connect4_screen.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -18,9 +18,8 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Column(
-        children: const [
-          Grid(7, 6),
-          Text("AI turn"),
+        children: [
+          Connect4Screen(const ["HUMAN", "AI"]),
         ],
       ),
       floatingActionButton: null,

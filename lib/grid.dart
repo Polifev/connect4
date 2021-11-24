@@ -1,25 +1,24 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/grid_cell.dart';
 
-class Grid extends StatefulWidget {
-  final int width, height;
-  const Grid(this.width, this.height, {Key? key}) : super(key: key);
+class Grid extends StatelessWidget {
+  final List<List<int>> gridContent;
+  final ValueSetter<int> onColumnClick;
+  const Grid(this.gridContent, this.onColumnClick, {Key? key})
+      : super(key: key);
 
-  @override
-  State<Grid> createState() => GridState();
-}
-
-class GridState extends State<Grid> {
   @override
   Widget build(BuildContext context) {
+    int height = gridContent.length;
+    int width = gridContent[0].length;
+
     List<Widget> list = <Widget>[];
-    for (int i = 0; i < widget.height; i++) {
+    for (int i = 0; i < height; i++) {
       List<Widget> sublist = <Widget>[];
-      for (int j = 0; j < widget.width; j++) {
-        int occupation = 0;
-        // TODO: get real occupation from model
-        // TODO: forward callback to player if it is player's turn
-        GridCell cell = GridCell(j, occupation, printColumn);
+      for (int j = 0; j < width; j++) {
+        int cellContent = gridContent[height - i - 1][j];
+        GridCell cell = GridCell(j, cellContent, onColumnClick);
         sublist.add(cell);
       }
       list.add(
@@ -28,13 +27,5 @@ class GridState extends State<Grid> {
     return Column(
       children: list,
     );
-  }
-
-  void printColumn(int col) {
-    SnackBar snackBar = SnackBar(
-      content: Text("Column pressed: $col"),
-      duration: const Duration(seconds: 1),
-    );
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }

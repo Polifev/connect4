@@ -195,4 +195,9 @@ class Connect4 implements ISituation {
   List<List<int>> getGrid() {
     return _grid;
   }
+
+  @override
+  int getCurrentplayer() {
+    return _currentPlayer;
+  }
 }
