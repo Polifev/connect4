@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/grid_cell.dart';
+import 'package:connect_4/grid_cell.dart';
 
 class Grid extends StatelessWidget {
   final List<List<int>> gridContent;

@@ -1,5 +1,5 @@
 import 'dart:math';
-import 'package:flutter_application_1/connect4/i_situation.dart';
+import 'package:connect_4/connect4/i_situation.dart';
 
 class MonteCarlo {
   final int nGames, color;

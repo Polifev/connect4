@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:flutter_application_1/connect4/connect4.dart';
-import 'package:flutter_application_1/connect4/i_situation.dart';
-import 'package:flutter_application_1/ia/monte_carlo.dart';
+import 'package:connect_4/connect4/connect4.dart';
+import 'package:connect_4/connect4/i_situation.dart';
+import 'package:connect_4/ia/monte_carlo.dart';
 
 class Connect4AI {
   static const loseScore = -1, winScore = 100, tieScore = 0;
